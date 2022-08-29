@@ -18,14 +18,19 @@ function form() {
     let mkt = "marketing";
     let fin = `Excelente ${nombre}, nosotros te contactaremos para más detalles`;
 
-
-    if(pregUno === resConv){
+     if(pregUno === resConv){
         alert(conversacion);
-    }else{
-        pregUno === resCot(pregDos);
+     }else if(pregUno === resCot){
+        pregDos;
+     }
 
-    }
-
+     if(pregDos === web){
+        alert(fin);
+     }else if(pregDos === brand){
+        alert(fin);
+     }else if(pregDos === mkt){
+        alert(fin)
+     }
 }
     
 form();
