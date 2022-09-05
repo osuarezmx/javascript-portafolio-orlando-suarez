@@ -20,8 +20,11 @@ function form() {
     let mkt = "marketing";
     let msjWeb = `Excelente ${nombre}, nosotros te contactaremos para más detalles sobre tu proyecto web`;
     let msjBrand = `Excelente ${nombre}, nosotros te contactaremos para más detalles sobre tu proyecto de branding`;
-    let msjMkt = `Excelente ${nombre}, nosotros te contactaremos para más detalles sobre tu proyecto de marketing digital`;
+    let msjMkt = `Lo sentimos ${nombre}, por el momento no podemos cotizar este servicio, escríbenos para resolver tus dudas`;
     let fin = `¡Gracias por contactárnos`;
+    const quitarServicio = [web, brand, mkt];
+
+    quitarServicio.pop();
 
      if(pregUno === resConv){
         alert(conversacion);
