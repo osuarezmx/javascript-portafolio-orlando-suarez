@@ -1,10 +1,12 @@
 let nombre = prompt("Ingresa tu nombre");
 
+
 function inicio() {
     let bienvenida = `Bienvenido ${nombre}`;
     alert(bienvenida);
 }
 inicio();
+
 
 function form() {
 
@@ -12,11 +14,14 @@ function form() {
     let resConv = "conversar";
     let resCot = "cotizar";
     let conversacion = `Muy bien ${nombre}, ¡Escríbenos!`;
-    let pregDos = prompt(`Perfecto ${nombre} ¿Qué servicio deseas cotizar? Desarrollo web, Branding, Marketing digital`)
+    let pregDos = prompt(`Perfecto ${nombre} ¿Qué servicio deseas cotizar? Desarrollo web, Branding, Marketing digital`);
     let web = "desarrollo web";
     let brand = "branding";
     let mkt = "marketing";
-    let fin = `Excelente ${nombre}, nosotros te contactaremos para más detalles`;
+    let msjWeb = `Excelente ${nombre}, nosotros te contactaremos para más detalles sobre tu proyecto web`;
+    let msjBrand = `Excelente ${nombre}, nosotros te contactaremos para más detalles sobre tu proyecto de branding`;
+    let msjMkt = `Excelente ${nombre}, nosotros te contactaremos para más detalles sobre tu proyecto de marketing digital`;
+    let fin = `¡Gracias por contactárnos`;
 
      if(pregUno === resConv){
         alert(conversacion);
@@ -25,32 +30,13 @@ function form() {
      }
 
      if(pregDos === web){
-        alert(fin);
+        alert(msjWeb);
      }else if(pregDos === brand){
-        alert(fin);
+        alert(msjBrand);
      }else if(pregDos === mkt){
-        alert(fin)
+        alert(msjMkt);
      }
+
+     alert(fin);
 }
-    
 form();
-
- /* while(pregUno === resConv){
-        alert(conversacion);
-    }
-    while(pregUno === resCot){
-        pregDos
-    }
-    while(pregDos === " "){
-        alert(fin)
-    } */
-
-   /*  if(pregUno === resConv){
-        alert(conversacion);
-    }else(pregUno === resCot){
-        pregDos === web(alert(fin));
-        }else{
-        pregDos === brand(alert(fin));
-            }else{
-                pregDos === mkt(alert(fin));
-            }  */
