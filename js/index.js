@@ -1,95 +1,91 @@
-let nombre = prompt("Ingresa tu nombre");
+//Bienvenida
+let nombrePers = prompt("Ingresa tu nombre");
+
 
 function inicio() {
-    let bienvenida = `Bienvenido ${nombre}`;
+    let bienvenida = `Bienvenido ${nombrePers}`;
     alert(bienvenida);
 }
 
 inicio();
 
-let designDevWeb, uiUx, digitStores, logoIndentity, naming, brandGuide, packaging, printedMat, creativityStrat, socialMedia, advertising;
 
-let fin = `Excelente ${nombre}, nosotros te contactaremos para más detalles`;
-    let pregWeb = prompt(`Perfecto ${nombre} estas son nuestras opciones de servicios web
-    4- diseño y desarrollo web
-    5- diseño ui/ux
-    6- tiendas digitales`);
-    let pregBrand = prompt(`Perfecto ${nombre} estas son nuestras opciones de servicios de branding
-    7- logo y sistema de identidad
-    8- naming
-    9- guia de identidad
-    10- packaging
-    11- naming`)
-    let pregMkt = prompt(`Perfecto ${nombre} estas son nuestras opciones de servicios de marketing
-    12- estrategia creativa y desarrollo de campaña de marketing
-    13- redes sociales
-    14- publicidad digital e impresa`);
-    let pregDos = prompt(`${nombre} ¿Deseas agregar otro serivicio?`);
-    let pregTres = prompt(`¿Qué servicio desess agregar?
-    1- Web,
-    2- Branding,
-    3- Marketing digital`);
+//Variables
+let total=0, precioServicio=0;
+let miCompra = [], totalPagar, posicion = 0, compra="Servicios a cotizar\n";
+let fin = `Gracias por contactarnos ${nombrePers}, nosotros nos pondremos en contacto contigo para más detalles.`
 
-let servWeb = "desarrollo web";
-let servBrand = "branding";
-let servMkt = "marketing";
-
-let servicioWeb = [
-    {id: designDevWeb, nombre: "diseño y desarrollo web"},
-    {id: uiUx, nombre:"ui/ux"},
-    {id: digitStores, nombre:"Tiendas Digitales"}
-];
-let servicioBrands = [
-    {id: logoIndentity, nombre:"logo y sistema de identidad"},
-    {id: naming, nombre:"naming"},
-    {id: brandGuide, nombre:"guia de identidad"},
-    {id: packaging, nombre:"packaging"},
-    {id: printedMat, nombre:"materiales impresos"}
-];
-let servicioMkt = [
-    {id: creativityStrat, nombre:"estrategia creativa y desarrollo de campaña de marketing"},
-    {id: socialMedia, nombre:"redes sociales"},
-    {id: advertising, nombre:"publicidad digital e impresa"},
-];
-let servicios = [
-    {id: servWeb, nombre: "desarrollo web", contenido: servicioWeb},
-    {id: servBrand, nombre: "branding", contenido: servicioBrands},
-    {id: servMkt, nombre: "marketing digital", contenido: servicioMkt}
+// Servicios
+const servicios = [
+    {id: 1, nombre: "diseño y desarrollo web", precio:16000},
+    {id: 2, nombre: "ui/ux", precio:10000},
+    {id: 3, nombre: "tiendas digitales", precio:18000},
+    {id: 4, nombre: "logo", precio:6500},
+    {id: 5, nombre: "naming", precio:4500},
+    {id: 6, nombre: "guia de identidad", precio:8000},
+    {id: 7, nombre: "packaging", precio:12500},
+    {id: 8, nombre: "materiales impresos", precio:4200},
+    {id: 9, nombre: "estrategia de marketing", precio:22800},
+    {id: 10, nombre:"redes sociales", precio:6200},
+    {id: 11, nombre:"publicidad digital", precio:5200},
 ];
 
-function servicio() {
-
-    let pregUno = prompt(`Hola ${nombre}¿Qué servicio deseas cotizar?
-    1- Web,
-    2- Branding,
-    3- Marketing digital`);
-    /* let pregDos, pregTres, pregWeb, pregBrand, pregMkt; */
+//Funcion para seleccionar serviciosa cotizar
+function cotizar() {
     
-    
-  
+    let catalogo = servicios.map(item => item.nombre);
 
-    if(pregUno === "1") {
-        pregWeb;
-    }else {
-        if(pregUno === "2") {
-            pregBrand;
-        } if(pregUno === "3") {
-            pregMkt;
-        }
+    const agregarCarrito = (item) => {
+        miCompra.push(item);
+        console.log(miCompra);
+        return(miCompra);
     }
 
-    
+    const mostrarCompra = () => {
+        for(let i=0; i<miCompra.length; i++){
+        compra = compra + `${miCompra[i].nombre}, Costo: $${miCompra[i].precio}\n`;}
+        console.log(miCompra);
+        alert(compra);
+        alert(`El total de los servicios es $${total}`);
+    }
 
-    if(pregWeb === "4") {
-        pregDos;
-    } if(pregDos === "si") {
-        pregTres;
-    }else {
-        if(pregDos === "no") {
-            alert(fin);
+    const sumarPrecios = (item) => {
+        precioServicio = parseInt(item.precio);
+        total += precioServicio;
+        return(total);
+    }
+
+    function ingresarServ() {
+        let encontrado=0
+        let seleccion = prompt(`${nombrePers}\n¿Qué servicio desea cotizar?\n${catalogo.join("\n")}`);
+        seleccion = seleccion.toLowerCase();
+        
+
+        for(const item of servicios) {
+            if(seleccion===(item.nombre).toLowerCase()){
+                let mensaje = `Servicio elegido: ${item.nombre}, Precio: $${item.precio}`;
+                alert(mensaje);
+                encontrado = 1;
+                agregarCarrito(item);
+                sumarPrecios(item);
+                return(item);
+            }
         }
-    } 
-
-}
+        if(encontrado === 0)
+        alert("No encontramos el servicio");
+    }
     
-servicio();
+    ingresarServ();
+
+    let nuevoServ = confirm(`¿Deseas agregar otro servicio?`);
+    while(nuevoServ === true) {
+        ingresarServ();
+        nuevoServ = confirm(`¿Deseas agregar otro servicio?`);
+    }
+    console.log(miCompra)
+    
+    mostrarCompra();
+
+    alert(fin);
+}
+cotizar();
