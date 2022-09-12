@@ -1,4 +1,4 @@
-let nombre = prompt("Ingresa tu nombre");
+/* let nombre = prompt("Ingresa tu nombre");
 
 
 function inicio() {
@@ -42,4 +42,4 @@ function form() {
 
      alert(fin);
 }
-form();
+form(); */
