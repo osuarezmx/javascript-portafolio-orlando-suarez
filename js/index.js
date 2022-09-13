@@ -12,30 +12,6 @@ let total=0, precioServicio=0;
 let miCompra = [], totalPagar, posicion = 0, compra="Servicios a cotizar\n";
 let fin = `Gracias por contactarnos ${nombrePers}, nosotros nos pondremos en contacto contigo para más detalles.`
 
-// Servicios
-const servicios = [
-    {id:1, nombre: "Desarrollo web", precio:16000},
-    {id:2, nombre: "Branding", precio:10000},
-    {id:3, nombre: "Marketing", precio:18000},
-];
-
-const serviciosWeb = [
-    {id:4, nombre: "diseño y desarrollo web", precio:16000},
-    {id:5, nombre: "ui/ux", precio:10000},
-    {id:6, nombre: "tiendas digitales(e-commerce)", precio:18000},
-];
-const serviciosBrand = [
-    {id:7, nombre: "logo", precio:6500},
-    {id:8, nombre: "naming", precio:4500},
-    {id:9, nombre: "guia de identidad", precio:8000},
-    {id:10, nombre: "packaging", precio:12500},
-];
-const serviciosMkt = [
-    {id:11, nombre: "materiales impresos", precio:4200},
-    {id:12, nombre: "estrategia de marketing", precio:22800},
-    {id:13, nombre:"redes sociales", precio:6200},
-    {id:14, nombre:"publicidad digital", precio:5200},
-];
 
 //Servicios agrupados
 /* const servicios = [
@@ -52,10 +28,62 @@ const serviciosMkt = [
     {nombre:"publicidad digital", precio:5200},
 ]; */
 
+// Proyectos
+let miita, maface, medz;
+
+const proyectos = [
+    {id:1, nombre: "Miitra", categorias: "branding y sitio web"},
+    {id:2, nombre: "MaFace", categorias: "branding"},
+    {id:3, nombre: "Medz", categorias: "branding"},
+];
+
+//DOM Proyectos
+let proyectosGrid = document.querySelector(".proyectos-grid");
+
+for(const proyecto of proyectos) {
+    let proyectoCard = document.createElement("div");
+    proyectoCard.className = "proyecto";
+    proyectoCard.innerHTML = `<img src="./img/imagen-muestra-cuadrado.jpg" class="proyecto-img">
+                                <div class="proyecto-contenido">
+                                    <h2 class="proyecto-titulo heading">${proyecto.nombre}</h2>
+                                    <h3 class="proyecto-categoria texto">${proyecto.categorias}</h3>
+                                    <div class="proyecto-enlace">
+                                        <a href="#" class="enlace">Ver más</a>
+                                    </div>
+                                </div>`;
+    
+    
+    proyectosGrid.append(proyectoCard);
+}
+
+
+// Servicios
+const servicios = [
+    {id:4, nombre: "Desarrollo web", precio:16000},
+    {id:5, nombre: "Branding", precio:10000},
+    {id:6, nombre: "Marketing", precio:18000},
+];
+
+const serviciosWeb = [
+    {id:7, nombre: "diseño y desarrollo web", precio:16000},
+    {id:8, nombre: "ui/ux", precio:10000},
+    {id:9, nombre: "tiendas digitales(e-commerce)", precio:18000},
+];
+const serviciosBrand = [
+    {id:10, nombre: "logo", precio:6500},
+    {id:11, nombre: "naming", precio:4500},
+    {id:12, nombre: "guia de identidad", precio:8000},
+    {id:13, nombre: "packaging", precio:12500},
+];
+const serviciosMkt = [
+    {id:14, nombre: "materiales impresos", precio:4200},
+    {id:15, nombre: "estrategia de marketing", precio:22800},
+    {id:16, nombre:"redes sociales", precio:6200},
+    {id:17, nombre:"publicidad digital", precio:5200},
+];
 
 // DOM SERVICIOS
 let serviciosGrid = document.querySelector(".servicios-grid");
-let servicioContenido = document.querySelector(".servicio-contenido");
 
 for (const servicio of servicios) {
     let servicioContenido = document.querySelector(".servicio-contenido");
