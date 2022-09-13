@@ -368,6 +368,7 @@ img {
     padding: 50px 0;
 }
 .servicio-contenido {
+    display: grid;
     background-color: var(--clrPrimary);
     padding: 20px 25px;
     border-radius: 15px;
@@ -386,12 +387,16 @@ img {
     padding: 0 0 20px 0;
 }
 .servicio-lista  {
+    display: flex;
+    flex-wrap: wrap;
+}
+.elemento-lista {
     color: var(--clrWhite);
 }
 .servicio-botones {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     padding-top: 30px;
 }
 .servicio-btn {
