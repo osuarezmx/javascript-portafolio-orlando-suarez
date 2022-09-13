@@ -7,7 +7,6 @@ function inicio() {
     alert(bienvenida);
 }
 
-
 //Variables
 let total=0, precioServicio=0;
 let miCompra = [], totalPagar, posicion = 0, compra="Servicios a cotizar\n";
@@ -15,9 +14,27 @@ let fin = `Gracias por contactarnos ${nombrePers}, nosotros nos pondremos en con
 
 // Servicios
 const servicios = [
-    {nombre: "Desarrollo web", precio:16000},
-    {nombre: "Branding", precio:10000},
-    {nombre: "Marketing", precio:18000},
+    {id:1, nombre: "Desarrollo web", precio:16000},
+    {id:2, nombre: "Branding", precio:10000},
+    {id:3, nombre: "Marketing", precio:18000},
+];
+
+const serviciosWeb = [
+    {id:4, nombre: "diseño y desarrollo web", precio:16000},
+    {id:5, nombre: "ui/ux", precio:10000},
+    {id:6, nombre: "tiendas digitales(e-commerce)", precio:18000},
+];
+const serviciosBrand = [
+    {id:7, nombre: "logo", precio:6500},
+    {id:8, nombre: "naming", precio:4500},
+    {id:9, nombre: "guia de identidad", precio:8000},
+    {id:10, nombre: "packaging", precio:12500},
+];
+const serviciosMkt = [
+    {id:11, nombre: "materiales impresos", precio:4200},
+    {id:12, nombre: "estrategia de marketing", precio:22800},
+    {id:13, nombre:"redes sociales", precio:6200},
+    {id:14, nombre:"publicidad digital", precio:5200},
 ];
 
 //Servicios agrupados
@@ -36,25 +53,7 @@ const servicios = [
 ]; */
 
 
-const serviciosWeb = [
-    {nombre: "diseño y desarrollo web", precio:16000},
-    {nombre: "ui/ux", precio:10000},
-    {nombre: "tiendas digitales(e-commerce)", precio:18000},
-];
-const serviciosBrand = [
-    {nombre: "logo", precio:6500},
-    {nombre: "naming", precio:4500},
-    {nombre: "guia de identidad", precio:8000},
-    {nombre: "packaging", precio:12500},
-];
-const serviciosMkt = [
-    {nombre: "materiales impresos", precio:4200},
-    {nombre: "estrategia de marketing", precio:22800},
-    {nombre:"redes sociales", precio:6200},
-    {nombre:"publicidad digital", precio:5200},
-];
-
-
+// DOM SERVICIOS
 let serviciosGrid = document.querySelector(".servicios-grid");
 let servicioContenido = document.querySelector(".servicio-contenido");
 
@@ -64,32 +63,35 @@ for (const servicio of servicios) {
 
     serviciosGrid.append(servicioContenido);
 
-
-    //Lista de cada servicio
+    //Categorias de servicios
     let servicioLista = document.createElement("ul");
     servicioContenido.append(servicioLista);
     servicioLista.className = "servicio-lista";
 
+    //Servicios Web
     if(servicio.nombre === "Desarrollo web"){
         for (const item of serviciosWeb) {
             let servWeb = document.createElement("li");
-            servWeb.innerHTML = `${item.nombre} | `;
+            servWeb.innerHTML = `${item.nombre}`;
             servWeb.className = "elemento-lista texto";
     
             servicioLista.append(servWeb);
+
         }
+    //Servicios Branding
     }else if(servicio.nombre === "Branding"){
         for (const item of serviciosBrand) {
             let servBrand = document.createElement("li");
-            servBrand.innerHTML = `${item.nombre} | `;
+            servBrand.innerHTML = `${item.nombre}`;
             servBrand.className = "elemento-lista texto";
     
             servicioLista.append(servBrand);
         }
+    //Servicios Marketing
     }else if(servicio.nombre === "Marketing"){
         for (const item of serviciosMkt) {
             let servMkt = document.createElement("li");
-            servMkt.innerHTML = `${item.nombre} | `;
+            servMkt.innerHTML =  `${item.nombre}`;
             servMkt.className = "elemento-lista texto";
     
             servicioLista.append(servMkt);
@@ -102,30 +104,28 @@ for (const servicio of servicios) {
     servicioContenido.append(btnServDiv);
     btnServDiv.className = "servicio-botones";
 
-    let btnServVer = document.createElement("a");
+    //Boton Ver más
+    let btnServVer = document.createElement("button");
     btnServVer.innerHTML = "Ver más";
     btnServVer.className = "enlace servicio-btn";
 
     btnServDiv.append(btnServVer);
 
-    let btnServCotizar = document.createElement("a");
+    //Boton Cotizar
+    let btnServCotizar = document.createElement("button");
     btnServCotizar.innerHTML = "Cotizar";
-    btnServCotizar.className = "enlace enlace-btn servicio-btn";
+    btnServCotizar.className = "enlace enlace-btn";
 
     btnServDiv.append(btnServCotizar);
 
+    function pregCotizar() {
+        let btnServCotizar = prompt(`${nombrePers}\n¿Qué servicio desea cotizar?`);
+        alert(btnServCotizar);
+    }
+
+    btnServCotizar.addEventListener("click", pregCotizar);
+
 }
-
-
-
-
-/* 
-let servicioLista = document.querySelector()
-for(const servicioWeb of serviciosWeb) {
-    let servicioListaElmnt = document.createElement("li");
-    servicioListaElmnt.innerHTML = `<h2>${servicio.nombre}</h2>`
-    servicioLista.append
-} */
 
 //Funcion para seleccionar serviciosa cotizar
 function cotizar() {

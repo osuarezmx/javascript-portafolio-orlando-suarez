@@ -363,7 +363,7 @@ img {
 }
 .servicios-grid {
     display: grid;
-    grid-template-columns: 1;
+    grid-template-columns: 1fr;
     gap: 20px;
     padding: 50px 0;
 }
@@ -386,10 +386,6 @@ img {
     font-weight: 600;
     padding: 0 0 20px 0;
 }
-.servicio-lista  {
-    display: flex;
-    flex-wrap: wrap;
-}
 .elemento-lista {
     color: var(--clrWhite);
 }
@@ -401,6 +397,9 @@ img {
 }
 .servicio-btn {
     color: var(--clrSecondary);
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
 }
 .servicio-btn:hover {
     color: var(--clrAccent);
@@ -408,6 +407,8 @@ img {
 .servicio-botones .enlace-btn {
     color: var(--clrAccent);
     border-color: var(--clrAccent);
+    cursor: pointer;
+    background-color: transparent;
 }
 .servicio-botones .enlace-btn:hover {
     color: var(--clrSecondary);
