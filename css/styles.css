@@ -427,6 +427,58 @@ img {
     }
 }
 
+/* Modal Cotizador */
+.modal {
+    position: fixed;
+    inset: 0 0 0 0;
+    background-color: #2a2b2ebd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .5s .6s;
+    --transformModal: translateY(-100vh);
+    --transitionModal: transform .6s;
+}
+.modal--show{
+    opacity: 1;
+    pointer-events: unset;
+    transition: opacity .5s;
+    --transformModal: translateY(0);
+    --transitionModal: transform .6s .6s;
+}
+.modal-contenedor {
+    margin: auto;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90%;
+    background-color: var(--clrPrimary);
+    border-radius: 15px;
+    padding: 20px 25px;
+    display: grid;
+    gap: 15px;
+    grid-auto-columns: 100%;
+    place-items: center;
+    transform: var(--transformModal);
+    transition: var(--transitionModal);
+}
+.modal-botones {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+.modal-cerrar {
+    position: relative;
+}
+@media (min-width:760px) {
+    .modal-botones {
+        flex-direction: row;
+        align-items: center;
+        gap: 50px;
+    }
+}
+
 /* Footer */
 .footer {
     background-color: var(--clrPrimary);

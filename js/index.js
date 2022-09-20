@@ -1,16 +1,16 @@
 //Bienvenida
-let nombrePers = prompt("Ingresa tu nombre");
+/* let nombrePers = prompt("Ingresa tu nombre");
 
 
 function inicio() {
     let bienvenida = `Bienvenido ${nombrePers}`;
     alert(bienvenida);
-}
+} */
 
 //Variables
-let total=0, precioServicio=0;
+/* let total=0, precioServicio=0;
 let miCompra = [], totalPagar, posicion = 0, compra="Servicios a cotizar\n";
-let fin = `Gracias por contactarnos ${nombrePers}, nosotros nos pondremos en contacto contigo para más detalles.`
+let fin = `Gracias por contactarnos ${nombrePers}, nosotros nos pondremos en contacto contigo para más detalles.` */
 
 
 //Servicios agrupados
@@ -29,32 +29,6 @@ let fin = `Gracias por contactarnos ${nombrePers}, nosotros nos pondremos en con
 ]; */
 
 // Proyectos
-let miita, maface, medz;
-
-const proyectos = [
-    {id:1, nombre: "Miitra", categorias: "branding y sitio web"},
-    {id:2, nombre: "MaFace", categorias: "branding"},
-    {id:3, nombre: "Medz", categorias: "branding"},
-];
-
-//DOM Proyectos
-let proyectosGrid = document.querySelector(".proyectos-grid");
-
-for(const proyecto of proyectos) {
-    let proyectoCard = document.createElement("div");
-    proyectoCard.className = "proyecto";
-    proyectoCard.innerHTML = `<img src="./img/imagen-muestra-cuadrado.jpg" class="proyecto-img">
-                                <div class="proyecto-contenido">
-                                    <h2 class="proyecto-titulo heading">${proyecto.nombre}</h2>
-                                    <h3 class="proyecto-categoria texto">${proyecto.categorias}</h3>
-                                    <div class="proyecto-enlace">
-                                        <a href="#" class="enlace">Ver más</a>
-                                    </div>
-                                </div>`;
-    
-    
-    proyectosGrid.append(proyectoCard);
-}
 
 
 // Servicios
@@ -142,21 +116,30 @@ for (const servicio of servicios) {
     //Boton Cotizar
     let btnServCotizar = document.createElement("button");
     btnServCotizar.innerHTML = "Cotizar";
-    btnServCotizar.className = "enlace enlace-btn";
+    btnServCotizar.className = "btn-cotizar enlace enlace-btn";
 
     btnServDiv.append(btnServCotizar);
 
-    function pregCotizar() {
-        let btnServCotizar = prompt(`${nombrePers}\n¿Qué servicio desea cotizar?`);
-        alert(btnServCotizar);
-    }
+    const modal = document.querySelector(".modal");
+    const modalCerrar = document.querySelector(".modal-cerrar");
 
-    btnServCotizar.addEventListener("click", pregCotizar);
+    btnServCotizar.addEventListener("click", (e) => {
+        e.preventDefault();
+        modal.classList.add("modal--show")
+    });
+    modalCerrar.addEventListener("click", (e) => {
+        e.preventDefault();
+        modal.classList.remove("modal--show")
+    });
+
+    let modalLista = document.querySelector("modal-lista");
 
 }
 
+
+
 //Funcion para seleccionar serviciosa cotizar
-function cotizar() {
+/* function cotizar() {
     
     let catalogo = servicios.map(item => item.nombre);
 
@@ -212,7 +195,7 @@ function cotizar() {
     mostrarCompra();
 
     alert(fin);
-}
+} */
 
 
 
